@@ -1,0 +1,25 @@
+server:
+  port: 8090
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+    check-template-location: true
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://180.67.41.199:3306/SPRING_BOOT_DB?useUnicode=true&characterEncoding=utf-8
+    username: lee
+    password: Lee1234!
+
+mybatis:
+  type-aliases-package: com.jong.mopr.model
+  mapper-locations: classpath:mybatis/**/*.xml
