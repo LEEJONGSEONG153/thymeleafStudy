@@ -11,7 +11,7 @@
     <link th:href="@{/css/common.css}" rel="stylesheet" />
 </th:block>
 <body>
-<th:block layout:fragment="header" th:include="@{/fragments/header}"></th:block>
+<th:block layout:fragment="header" th:include="@{fragments/header}"></th:block>
 
 <div layout:fragment="content" class="content">
     <table border="2">
@@ -20,7 +20,7 @@
             <th>name</th>
             <th>email</th>
         </tr>
-        <th:block th:each="rl : ${salaryList}">
+        <th:block th:each="rl : ${userList}">
             <tr>
                 <td th:text="${rl.id}"></td>
                 <td th:text="${rl.name}"></td>
@@ -31,6 +31,6 @@
     <h2>This is Content</h2>
 </div>
 
-<th:block layout:fragment="footer" th:include="@{/fragments/footer}"></th:block>
+<th:block layout:fragment="footer" th:include="@{fragments/footer}"></th:block>
 </body>
 </html>

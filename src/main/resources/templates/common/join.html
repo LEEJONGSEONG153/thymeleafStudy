@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h2>회원가입</h2>
+  <form action="/join" method="post">
+
+      id   : <input type="text" name="id" required/><br>
+      pw   : <input type="password" name="pw" required/><br>
+      name : <input type="text" name="name" required/><br>
+      email: <input type="email" name="email"/><br>
+      role : <input type="text" name="role"/><br>
+      <button id="joinBtn" type="submit">회원가입</button>
+      <button id="loginBtn" type="button">뒤로</button>
+  </form>
+
+<script>
+    document.getElementById('loginBtn').addEventListener('click',()=>{
+        location.href="/loginPage"
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" action="/loginProc">
+     id : <input type="text"  name="id"/><br>
+     pw : <input type="password" name="pw"/><br>
+
+
+      <button type="submit">로그인</button>
+      <button type="button" id="joinBtn">회원가입</button>
+    </form>
+
+<script>
+    console.log('dd');
+    document.getElementById('joinBtn').addEventListener('click',()=>{
+
+        // let form = document.createElement("form");
+        // form.action="/joinPage"
+        // form.method = "post";
+        // form.submit();
+
+        location.href="/joinPage";
+    })
+</script>
+</body>
+</html>
