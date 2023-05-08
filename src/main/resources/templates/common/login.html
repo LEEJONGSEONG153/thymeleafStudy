@@ -6,18 +6,15 @@
 </head>
 <body>
     <form method="post" action="/loginProc">
-     id : <input type="text"  name="id"/><br>
-     pw : <input type="password" name="pw"/><br>
-
-
-      <button type="submit">로그인</button>
-      <button type="button" id="joinBtn">회원가입</button>
+        id : <input type="text"  name="id"/><br>
+        pw : <input type="password" name="pw"/><br>
+        <button type="submit">로그인</button>
+         <button type="button" id="joinBtn">회원가입</button>
     </form>
 
 <script>
-    console.log('dd');
     document.getElementById('joinBtn').addEventListener('click',()=>{
-
+        // TODO POST로 변경해보기
         // let form = document.createElement("form");
         // form.action="/joinPage"
         // form.method = "post";

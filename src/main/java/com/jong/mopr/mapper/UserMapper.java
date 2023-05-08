@@ -12,4 +12,6 @@ public interface UserMapper {
     UserModel getUser(String id);
 
     UserModel joinUser(UserModel userModel);
+
+    List<UserModel> getUsers();
 }

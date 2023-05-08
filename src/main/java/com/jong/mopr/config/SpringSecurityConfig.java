@@ -21,7 +21,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/home", "/joinPage","/join").permitAll()
+                    .antMatchers("/joinPage","/join").permitAll()
                     .antMatchers("/manage").hasAuthority("ROLE_ADMIN")
                     .anyRequest().authenticated()
                 .and()
@@ -31,6 +31,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                     .usernameParameter("id")
                     .passwordParameter("pw")
                     .defaultSuccessUrl("/home",true)
+                    .failureUrl("/loginPage")
                     .permitAll()
                 .and()
                     .logout()

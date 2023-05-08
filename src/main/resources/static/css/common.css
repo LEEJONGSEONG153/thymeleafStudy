@@ -4,14 +4,14 @@ body, html {
 
 .header {
     background-color: Gray;
-    height: 20%
+    height: 10%
 }
 
 .content {
-    height:60%;
+    height:75%;
 }
 
 .footer {
     background-color: yellow;
-    height: 20%
+    height: 15%
 }
