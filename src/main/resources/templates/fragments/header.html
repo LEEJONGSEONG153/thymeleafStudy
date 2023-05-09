@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <div class="header">
-        <h2>Header</h2>
+        <h4>[[${member.name}]]님 안녕하세요</h4>
+        <button id="logoutBtn">로그아웃</button>
     </div>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click',()=>{
+            location.href="/logoutProc"
+        })
+    </script>
+
 </html>

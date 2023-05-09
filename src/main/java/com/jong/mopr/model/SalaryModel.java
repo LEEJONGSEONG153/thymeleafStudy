@@ -3,7 +3,6 @@ package com.jong.mopr.model;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
-import org.springframework.lang.Nullable;
 
 @Builder
 @Data

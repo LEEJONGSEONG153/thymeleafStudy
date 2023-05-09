@@ -1,14 +1,12 @@
 package com.jong.mopr.controller;
 
-import com.jong.mopr.mapper.UserMapper;
 import com.jong.mopr.model.UserModel;
+import com.jong.mopr.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class Common {
@@ -17,16 +15,12 @@ public class Common {
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    UserMapper userMapper;
+
+    UserService userService;
 
     @RequestMapping("/loginPage")
     public String loginPageLoad() {
         return "common/login";
-    }
-
-    @RequestMapping(value = "/joinPage")
-    public String joinPageLoad() {
-        return "common/join";
     }
 
     @RequestMapping(value = "/join",method = RequestMethod.POST)
@@ -35,7 +29,7 @@ public class Common {
         String pw = userModel.getPw();
         String encodedPw = bCryptPasswordEncoder.encode(pw);
         userModel.setPw(encodedPw);
-        userMapper.joinUser(userModel);
+        userService.joinUser(userModel);
         return "common/login";
     }
 }

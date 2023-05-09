@@ -1,7 +1,7 @@
 package com.jong.mopr.config;
 
-import com.jong.mopr.mapper.UserMapper;
 import com.jong.mopr.model.UserModel;
+import com.jong.mopr.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.User;
@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,11 +20,11 @@ public class LoginIdPwValidator implements UserDetailsService {
     }
 
     @Autowired
-    private UserMapper mapper;
+    private UserService userService;
 
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-        UserModel user = mapper.getUser(id);
+        UserModel user = userService.getUser(id);
 
         if (user == null) {
             return null;
