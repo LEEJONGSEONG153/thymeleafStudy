@@ -1,13 +1,23 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <div class="header">
-        <h4>[[${member.name}]]님 안녕하세요</h4>
+<div class="header">
+    <div style="text-align: right">
+        <p style="color: aquamarine">[[${member.name}]]님</p>
         <button id="logoutBtn">로그아웃</button>
     </div>
-    <script>
-        document.getElementById('logoutBtn').addEventListener('click',()=>{
-            location.href="/logoutProc"
-        })
-    </script>
+    <div>
+        <ul id="board" style="text-align: center">
+            <li style="list-style: none">Board</li>
+        </ul>
+    </div>
+</div>
 
-</html>
+<script>
+    document.getElementById('logoutBtn').addEventListener('click',()=>{
+        location.href="/logoutProc"
+    })
+
+    $('#board').click(function(){
+        location.href="/board"
+
+
+    })
+</script>

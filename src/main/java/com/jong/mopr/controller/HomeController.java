@@ -28,8 +28,43 @@ public class HomeController {
 
         mav.addObject("member",member);
         mav.addObject("userList",userList);
-        mav.setViewName("content/home");
+        mav.setViewName("content/main");
 
         return mav;
+    }
+    @RequestMapping(value = "/board", method= RequestMethod.GET)
+    public ModelAndView goBoard(HttpServletRequest request, @AuthenticationPrincipal User user) {
+        UserModel member = userService.getUser(user.getUsername());
+
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("content/board");
+        mv.addObject("member",member);
+
+        return mv;
+    }
+
+    @RequestMapping(value = "/board/write", method= RequestMethod.GET)
+    public ModelAndView writeBoard(HttpServletRequest request, @AuthenticationPrincipal User user) {
+        UserModel member = userService.getUser(user.getUsername());
+
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("content/boardWrite");
+        mv.addObject("member",member);
+
+        return mv;
+    }
+    
+    //게시판 등록시키기
+    @RequestMapping(value = "/board/insert", method= RequestMethod.GET)
+    public ModelAndView insertBoard(HttpServletRequest request, @AuthenticationPrincipal User user) {
+        UserModel member = userService.getUser(user.getUsername());
+
+        
+        
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("content/board");
+        mv.addObject("member",member);
+
+        return mv;
     }
 }

@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko"
-        xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net/nz/thymeleaf/layout">
-
-    <th:block layout:fragment="head"></th:block>
-
-    <div>
-        <div layout:fragment="header"></div>
-
-        <div layout:fragment="content"></div>
-
-        <div layout:fragment="footer"></div>
-    </div>
-
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <th:block th:replace="fragments/head"></th:block>
 </head>
 <body>
+    <th:block th:replace="fragments/header"></th:block>
 
+    <div layout:fragment="content"></div>
+
+    <th:block th:replace="~{fragments/footer}"></th:block>
 </body>
 </html>
