@@ -1,23 +1,40 @@
 <div class="header">
     <div style="text-align: right">
-        <p style="color: aquamarine">[[${member.name}]]님</p>
+        <p id="userId" style="color: aquamarine" th:attr="data-role=${member.role}">[[${member.name}]]님</p>
         <button id="logoutBtn">로그아웃</button>
     </div>
     <div>
-        <ul id="board" style="text-align: center">
-            <li style="list-style: none">Board</li>
+        <ul id="menu" style="text-align: center; list-style: none">
+            <li style="list-style: none ; float:left; margin-left: 20px"  th:each="menu : ${menuList}" th:attr="data-groupCode=${menu.group_code}" th:text="${menu.code_name}" th:value="${menu.code}"></li>
         </ul>
     </div>
 </div>
+<form id="menuform">
+</form>
 
 <script>
     document.getElementById('logoutBtn').addEventListener('click',()=>{
         location.href="/logoutProc"
     })
 
-    $('#board').click(function(){
-        location.href="/board"
-
-
+    $('#userId').click(function(){
+        if($('#userId').data('role') == "ADMIN"){
+            location.href = "/managㅇㅇe"
+            return;
+        }else {
+            return;
+        }
+    })
+    $('#menu').click(function(e){
+        let targetValue = e.target.attributes.value.value;
+        let targetName = e.target.innerText;
+        let targetGroupCode = e.target.dataset.groupcode;
+        let form = $('#menuform');
+        form.attr("action","/admMenu");
+        form.attr("method","POST");
+        form.attr("innerHTML","<input type='hidden' id='code' name='code' th:value='"+targetValue+"'>");
+        form.attr("innerHTML","<input type='hidden' id='code_name' name='code_name' th:value='"+targetName+"'>");
+        form.attr("innerHTML","<input type='hidden' id='group_code' name='group_code' th:value='"+targetGroupCode+"'>");
+        form.submit();
     })
 </script>
